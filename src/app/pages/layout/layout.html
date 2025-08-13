@@ -1,0 +1,106 @@
+
+<nav class="navbar navbar-expand-sm" 
+     style="background-color: #ffe4f2; font-family: 'Comic Neue', cursive; box-shadow: 0 4px 8px rgba(255, 182, 193, 0.3);">
+     
+  <!-- container-fluid = contenedor del bootstrap ese que ocupa todo el ancho de la pantalla -->
+  <div class="container-fluid">
+
+    <!-- navbar-brand = estilo especial para el logo o nombre -->
+    <!-- fw-bold = texto en negrita -->
+    <a class="navbar-brand fw-bold" href="/" style="color: #ff69b4;">
+      <!-- Icono con fontawesome -->
+      <i class="fas fa-heart me-1"></i> uwuApp
+    </a>
+
+    <!-- navbar-toggler = botón que aparece en pantallas pequeñas -->
+    <!-- data-bs-toggle="collapse" = hace que al hacer clic abra/cierre el menú -->
+    <!-- data-bs-target="#mynavbar" = indica qué menú se va a mostrar/ocultar -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"
+      style="border-color: #ffb6c1;">
+      <!-- navbar-toggler-icon = icono del botón hamburguesa -->
+      <span class="navbar-toggler-icon"></span>
+    </button> <!-- Botón hamburguesa si la pantalla es pequeña -->
+
+    <!-- collapse navbar-collapse = sección que se oculta/expande -->
+    <div class="collapse navbar-collapse" id="mynavbar">
+  
+      <!-- navbar-nav = lista de navegación -->
+      <!-- me-auto = empuja los siguientes elementos a la derecha -->
+      <!-- mb-2 mb-lg-0 = margen inferior para móvil y sin margen en pantallas grandes -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <!-- nav-item = cada elemento del menú -->
+        <!-- me-3 = margen a la derecha -->
+        <li class="nav-item me-3">
+          <!-- nav-link = estilo para enlaces dentro de la navbar -->
+          <!-- active = enlace activo -->
+          <!-- fw-semibold = semi-negrita -->
+          <a class="nav-link active fw-semibold" aria-current="page" style="color: #d63384;" [routerLink]="['/dashboard']">Home</a>
+        </li>
+
+        <li class="nav-item me-3">
+          <a class="nav-link fw-semibold" href="publish" style="color: #d63384;">Create Post</a>
+        </li>
+
+        <li class="nav-item me-3">
+          <a class="nav-link fw-semibold" [routerLink]="['/postwall']" style="color: #d63384;">Feed</a>
+        </li>
+
+        <li class="nav-item me-3">
+          <a class="nav-link fw-semibold" [routerLink]="['/playArea']" style="color: #d63384;">Play area</a>
+        </li>
+      </ul>
+
+      <!-- d-flex = usa flexbox para alinear horizontalmente -->
+      <!-- me-3 = margen a la derecha -->
+      <form class="d-flex me-3">
+        <!-- form-control = estilo para inputs -->
+        <!-- me-2 = margen a la derecha -->
+        <input class="form-control me-2" type="text" placeholder="Search..." 
+               style="border-radius: 15px; border: 1px solid #f8c8dc; background-color: #fff0f6;">
+        <!-- btn = estilo de botón básico -->
+        <button class="btn" type="button" style="background-color: #ff85a2; color: white; border-radius: 15px;">
+          🔍 Search
+        </button>
+      </form>
+
+      <!-- nav-item dropdown = menú desplegable -->
+      <div class="nav-item dropdown">
+        <!-- nav-link = estilo de enlace -->
+        <!-- dropdown-toggle = le da la flechita indicando menú desplegable -->
+        <!-- d-flex align-items-center = usa flexbox y alinea verticalmente al centro -->
+        <!-- data-bs-toggle="dropdown" = activa el menú al hacer clic -->
+        <!-- dropdown-menu-end = alinea el menú a la derecha -->
+        <a 
+          class="nav-link dropdown-toggle d-flex align-items-center" 
+          href="#" 
+          role="button" 
+          data-bs-toggle="dropdown" 
+          aria-expanded="false"
+          (click)="$event.preventDefault()"
+        >
+        
+          <!-- rounded-circle = redondea la imagen -->
+          <!-- border border-2 = borde de grosor 2px -->
+          <img 
+            [src]="previewUrl() || 'https://imgs.search.brave.com/tGkl_DxQifg86uYnNOCjRxGGXc9IOowrmpoQFYLuNoE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTI5/ODI2MTUyNS92ZWN0/b3IvYmxhbmstbWFu/LXByb2ZpbGUtcGxh/Y2Vob2xkZXItaWNv/bi13aXRoLWZyYW1l/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1WOHpJZnVoZkNH/QTVpMm9fd1h2RFZk/WEdUTjJtaTFsa2Fl/RVlPblBySDRjPQ'" 
+            alt="Profile" 
+            class="rounded-circle border border-2" 
+            style="border-color: #ff85a2; width: 40px; height: 40px; object-fit: cover;">
+        </a>
+
+        <!-- dropdown-menu = menú desplegable -->
+        <!-- dropdown-menu-end = alineado a la derecha -->
+        <ul class="dropdown-menu dropdown-menu-end" style="font-family: 'Comic Neue', cursive;">
+          <li><a class="dropdown-item" [routerLink]="['/profile']">My profile</a></li>
+          <li><a class="dropdown-item">Settings</a></li>
+          <hr>
+          <li><a class="dropdown-item text-danger" href="#">Log out</a></li>
+        </ul>
+      </div>
+
+    </div> <!-- Fin collapse navbar-collapse -->
+  </div> <!-- Fin container-fluid -->
+</nav>
+
+<router-outlet />

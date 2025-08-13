@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+/* body, button, a, input, textarea, select,label {
+  cursor: url('./app/assets/sym759_page_01.png'), auto!important;
+} */
+
+/* ESTILO DE LOS CURSORES */
+
+body {
+  cursor: url('/sym759_page_01.png'), auto!important;
+}
+
+button,
+a,
+label {
+  cursor: url('/oth651.cur'), pointer!important;
+}
+
+input,
+textarea {
+  cursor: url('/oth843.cur'), text!important;
+}
+
+div.disabled,
+button:disabled {
+  cursor: url('/sym582.cur'), not-allowed!important;
+}
+
+img:active {
+  cursor: url('/sym582.cur'), grab!important;
+}

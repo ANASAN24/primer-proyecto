@@ -1,0 +1,115 @@
+.kawaii-btn {
+  background: linear-gradient(135deg, #f9a8d4, #fbcfe8);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(249, 168, 212, 0.5);
+  font-family: 'Comic Sans MS', 'Segoe UI', cursive;
+  transition: all 0.3s ease;
+}
+
+.profile-actions {
+  margin-top: 10px;
+}
+.btn-follow, .btn-message {
+  border: none;
+  border-radius: 15px;
+  padding: 8px 15px;
+  margin: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.btn-follow {
+  background-color: #ff85a2;
+  color: white;
+}
+.btn-message {
+  background-color: #ffe4f2;
+  color: #d63384;
+  border: 1px solid #ff85a2;
+}
+
+
+
+.profile-posts {
+  background-color: white;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: left;
+}
+ h3 {
+  color: #ff69b4;
+}
+.post-card {
+  background-color: #fff0f6;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.15);
+}
+p {
+  margin: 0;
+  color: #a64d79;
+}
+small {
+  color: #999;
+}
+
+.new-post-form {
+  background-color: white;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.2);
+  text-align: left;
+}
+
+#texto {
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid #ffb6c1;
+  padding: 10px;
+  resize: none;
+  font-family: 'Comic Neue', cursive;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+input[type="file"] {
+  margin-bottom: 10px;
+}
+
+.preview-new-post img {
+  max-width: 50%;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.15);
+  display: block;
+}
+
+.btn-post {
+  background-color: #ff85a2;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-post:hover {
+  background-color: #ff5a7d;
+}
+
+.post-card img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-top: 8px;
+  margin-bottom: 5px;
+}

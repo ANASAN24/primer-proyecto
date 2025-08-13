@@ -1,0 +1,92 @@
+<!-- Contenedor principal -->
+<div class="container my-5" style="font-family: 'Comic Neue', cursive;">
+  <!-- 
+    Bootstrap:
+      - container → contenedor con ancho máximo y márgenes automáticos horizontales.
+      - my-5 → margen vertical (top y bottom) de 3rem.
+  -->
+
+  <div class="text-center p-4 rounded-4 shadow"
+       style="background-color: #fff0f6; border: 2px dashed #ffb6c1; max-width: 600px; margin: auto;">
+    <!-- 
+      Bootstrap:
+        - text-center → centra el texto horizontalmente.
+        - p-4 → padding interno de 1.5rem.
+        - rounded-4 → bordes redondeados grandes.
+        - shadow → aplica una sombra suave.
+    -->
+
+  
+    <h1 class="fw-bold mb-3" style="color: #d63384;">
+      <!-- 
+        Bootstrap:
+          - fw-bold → texto en negrita.
+          - mb-3 → margen inferior de 1rem.
+      -->
+      🎀 Hey {{ currentUser.userName }}!
+    </h1>
+
+
+    <p style="color: #ff69b4; font-size: 1.2rem;">Welcome to your dashboard!</p>
+
+ 
+    <hr style="border-top: 2px dashed #f8c8dc; width: 60%; margin: 1.5rem auto;">
+
+    <div class="quick-actions mb-4">
+      <!-- 
+        Bootstrap:
+          - mb-4 → margen inferior de 1.5rem.
+          - btn → botón básico de Bootstrap.
+          - me-2 → margen a la derecha (spacing entre botones).
+      -->
+      <button class="btn kawaii-btn me-2" (click)="goToDiary()">✍️ Your profile page</button>
+      <button class="btn kawaii-btn me-2" (click)="goToPosts()">📸 See your own posts</button>
+    </div>
+
+    <!-- <div class="text-center mt-4">
+      
+        Bootstrap:
+          - text-center → centra el contenido.
+          - mt-4 → margen superior de 1.5rem.
+      -->
+      <!-- <button class="btn" style="background-color: #ff85a2; color: white; border-radius: 20px; padding: 10px 20px;">
+        💌 Do Something idk
+      </button> 
+    </div> -->
+
+ 
+    <div class="mb-3 text-center">
+      <!-- 
+        Bootstrap:
+          - mb-3 → margen inferior de 1rem.
+          - text-center → centra el contenido.
+      -->
+      <label for="fileInput" class="btn kawaii-btn">
+        💖 Upload a profile picture 💖
+      </label>
+      <!-- 
+        Bootstrap:
+          - d-none → oculta el input de archivo.
+      -->
+      <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" class="d-none"/>
+    </div>
+
+ 
+    <div *ngIf="previewUrl()" class="image-preview-container text-center">
+      <!-- 
+        Bootstrap:
+          - text-center → centra el contenido.
+          - text-muted → texto gris claro (en el párrafo de abajo).
+          - mb-2 → margen inferior pequeño.
+      -->
+      <p class="text-muted mb-2">✨ Your profile picture ✨</p>
+
+      <div class="kawaii-frame">
+        <img [src]="previewUrl()" alt="Imagen seleccionada" class="kawaii-img" />
+        <div class="sparkle">🌟</div>
+        <div class="sparkle sparkle2">🌟</div>
+      </div>
+    </div>
+
+  </div>
+</div>

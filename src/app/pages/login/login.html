@@ -1,0 +1,158 @@
+<!-- 
+vh-100 = altura del 100% del viewport (pantalla)
+position-relative = posiciona el elemento relativamente (para colocar hijos con position absolute si se necesita)
+d-flex = display flex (permite alinear contenido usando flexbox)
+justify-content-center = centra horizontalmente
+align-items-center = centra verticalmente
+-->
+<section class="vh-100 position-relative d-flex justify-content-center align-items-center"
+  style="background: linear-gradient(to right, #ffd6e8, #ffe4f2); font-family: 'Comic Neue', cursive;">
+
+  <!-- d-none = no mostrar el elemento en ningún tamaño
+       d-md-block = mostrar como bloque solo en pantallas medianas o más grandes -->
+  <div class="kawaii-icon left-icon d-none d-md-block">
+    <i class="fas fa-magic glitter-icon" (mouseenter)="playSounds('dingSound')"></i>
+    <i class="fas fa-star glitter-icon delay-1" (mouseenter)="playSounds('dingSound')"></i>
+    <i class="fas fa-heart glitter-icon delay-2" (mouseenter)="playSounds('dingSound')"></i>
+  </div>
+
+  <!-- text-black = texto negro
+       d-flex = usa flexbox
+       flex-column = dirección vertical lo del flex este
+       justify-content-center = centra verticalmente el contenido dentro de su contenedor
+       align-items-center = centra horizontalmente -->
+  <div class="text-black d-flex flex-column justify-content-center align-items-center">
+
+    <!-- text-center = alinea el texto al centro
+         mb-4 = margen inferior de tamaño 4 (margin botton)-->
+    <div class="text-center mb-4">
+      <!-- fa-2x = tamaño del ícono 2 veces el normal
+           me-2 = margen a la derecha -->
+      <i class="fas fa-heart fa-2x me-2" style="color: #ff69b4;"></i>
+      <!-- h1 = tamaño de fuente grande estilo encabezado
+           fw-bold = texto en negrita
+           mb-0 = margen inferior 0 -->
+      <span class="h1 fw-bold mb-0" style="color: #ff69b4;">uwuApp</span>
+    </div>
+
+    <div class="kawaii-frame-wrapper">
+
+      <i class="fas fa-star glitter glitter-tl" (mouseenter)="playSounds('dingSound')"></i>
+      <i class="fas fa-star glitter glitter-tr" (mouseenter)="playSounds('dingSound')"></i>
+      <i class="fas fa-star glitter glitter-bl" (mouseenter)="playSounds('dingSound')"></i>
+      <i class="fas fa-star glitter glitter-br" (mouseenter)="playSounds('dingSound')"></i>
+
+      <!-- card = tarjeta con borde redondeado y fondo blanco
+           shadow = sombra alrededor
+           p-4 = padding interno tamaño 4 -->
+      <div class="card shadow p-4 kawaii-card">
+
+        <!-- fw-bold = negrita
+             text-center = texto centrado
+             mb-4 = margen inferior tamaño 4 -->
+        @if(isLoginView==true){
+        <form>
+          <h3 class="fw-bold text-center mb-4" style="color: #d63384;">Log in</h3>
+
+          <!-- form-outline = estilo para campos de formulario
+               mb-4 = margen inferior tamaño 4 -->
+          <div class="form-outline mb-4">
+            <!-- form-label = estilo para etiquetas -->
+            <label class="form-label" for="form2Example18">User Name</label>
+            <!-- form-control = estilo para inputs
+                 form-control-lg = tamaño grande -->
+            <input  (keydown)="playSounds('keySound')" (keyup.enter)="checkLogin('form2Example18', 'form2Example28', 'password-L')"
+              name="userName" [(ngModel)]="userLoginObj.userName" type="text"
+              id="form2Example18" class="form-control form-control-lg"
+              style="border-radius: 12px; border: 1px solid #f8c8dc;" />
+          </div>
+
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example28">Password</label>
+            <input (keydown)="playSounds('keySound')" id="form2Example28" name="password" [(ngModel)]="userLoginObj.password" type="password" (keyup.enter)="checkLogin('form2Example18', 'form2Example28', 'password-L')"
+               class="form-control form-control-lg"
+              style="border-radius: 12px; border: 1px solid #f8c8dc;" />
+              <p id="password-L" style=" font-weight:bold; color:#d63384; visibility: hidden;">Name and password required</p>
+          </div>
+
+          <!-- pt-1 = padding top pequeño
+               mb-4 = margen inferior
+               d-grid = usa grid layout (para hacer que el botón ocupe todo el ancho) -->
+          <div class="pt-1 mb-4 d-grid">
+            <!-- btn = estilo base de botón
+                 btn-lg = botón grande -->
+            <button (click)="checkLogin('form2Example18', 'form2Example28', 'password-L')" class="btn btn-lg"
+              style="background-color: #ff85a2; color: white; border-radius: 20px;">💗 Login</button>
+          </div>
+
+          <!-- text-center = texto centrado -->
+          <p class="text-center">Don't have an account? <a href="javascript:void(0);" (click)="isLoginView=false"
+              style="color: #ff69b4;">Register here</a></p>
+
+        </form>
+        } @else {
+        <form>
+          <h3 class="fw-bold text-center mb-4" style="color: #d63384;">Register</h3>
+
+          <div class="form-outline mb-4">
+            <label class="form-label" for="emailInput">Email address</label>
+            <input (keydown)="playSounds('keySound')" required id="emailInput" (keyup.enter)="checkRegister('emailInput', 'usernameInput', 'passwordInput', 'password-R')" name="emailId" [(ngModel)]="userRegisterObj.emailId" type="email"
+               class="form-control form-control-lg"
+              style="border-radius: 12px; border: 1px solid #f8c8dc;" />
+
+          </div>
+
+          <div class="form-outline mb-4">
+            <label class="form-label" for="usernameInput">User Name</label>
+            <input (keydown)="playSounds('keySound')" required (keyup.enter)="checkRegister('emailInput', 'usernameInput', 'passwordInput', 'password-R')" name="userName" [(ngModel)]="userRegisterObj.userName" type="text"
+              id="usernameInput" class="form-control form-control-lg"
+              style="border-radius: 12px; border: 1px solid #f8c8dc;" />
+
+          </div>
+
+          <div  class="form-outline mb-4">
+            <label class="form-label" for="passwordInput">Password</label>
+            <input (keydown)="playSounds('keySound')" required (keyup.enter)="checkRegister('emailInput', 'usernameInput', 'passwordInput', 'password-R')" name="password" [(ngModel)]="userRegisterObj.password"
+              type="password" id="passwordInput" class="form-control form-control-lg"
+              style="border-radius: 12px; border: 1px solid #f8c8dc;" />
+              <p id="password-R" style=" font-weight:bold; color:#d63384; visibility: hidden;">Email, user name and password required</p>
+
+          </div>
+
+          <div class="pt-1 mb-4 d-grid">
+            <button (click)="checkRegister('emailInput', 'usernameInput', 'passwordInput', 'password-R')" class="btn btn-lg"
+              style="background-color: #ff85a2; color: white; border-radius: 20px;">🎀 Register</button>
+          </div>
+
+          <p class="text-center">Already have an account? <a href="javascript:void(0);" (click)="isLoginView=true"
+              style="color: #ff69b4;">Login here</a></p>
+
+        </form>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- d-none = no mostrar en ningún tamaño
+       d-md-block = mostrar en pantallas medianas o más grandes -->
+  <div class="kawaii-icon right-icon d-none d-md-block">
+    <i class="fas fa-heart glitter-icon" (mouseenter)="playSounds('dingSound')"></i>
+    <i class="fas fa-star glitter-icon delay-1" (mouseenter)="playSounds('dingSound')"></i>
+    <i class="fas fa-wand-magic-sparkles glitter-icon delay-2" (mouseenter)="playSounds('dingSound')"></i>
+  </div>
+
+  <!-- Música de fondo -->
+  <audio autoplay loop hidden>
+    <source src="/shiawase-cafe.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <audio id="dingSound" preload="auto">
+    <source src="/ding-101492.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="keySound" preload="auto">
+    <source src="/minimal-pop.mp3" type="audio/mpeg" />
+  </audio>
+
+</section>

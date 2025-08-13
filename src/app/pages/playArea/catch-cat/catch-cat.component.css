@@ -1,0 +1,32 @@
+.game-container {
+  max-width: 850px;
+  height: 600px;
+  margin: 2rem auto;
+  background: #fff0f6;
+  border: 2px dashed #ffb6c1;
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  font-family: 'Comic Neue', cursive;
+  color: #d63384;
+  box-shadow: 0 0 15px #ff85a2aa;
+  text-align: center;
+  position: relative;
+}
+
+ h3 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+ p {
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+}
+#cat {
+  width: 200px;
+  height: 79px;
+  cursor: pointer;
+  transition: top 0.3s ease, left 0.3s ease;
+  position: absolute;
+}

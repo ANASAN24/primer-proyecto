@@ -1,0 +1,82 @@
+<div class="profile-container">
+
+  <div class="cover-photo">
+    <img class="img-cover-photo" *ngIf="bannerImage()" [src]="bannerImage()" alt="cover">
+  </div>
+
+  <div class="profile-pic-container">
+    <div class="pic-wrapper">
+    <img 
+      [src]="previewUrl() || 'https://via.placeholder.com/150'" 
+      alt="Foto de perfil"
+      class="profile-pic">
+    </div>
+  </div>
+
+  <div class="profile-info">
+    <h2 class="username">{{ currentUser.userName }}</h2>
+    <p class="bio">✨ Hi there!~ ✨</p>
+
+    <div class="profile-actions">
+      <!-- Botón que abre el selector -->
+<button (click)="fileInput.click()" class="btn-follow">🌸 Change picture</button>
+
+<!-- Input oculto -->
+<input 
+  type="file" 
+  #fileInput 
+  style="display: none;" 
+  (change)="onFileSelected($event)">
+
+      <button (click)="ShowInformationUser('valueDiv', 'showDiv')" class="btn-message">💌 Change info</button>
+    </div>
+  </div>
+
+    <div style="display: none;" id="valueDiv" class="profile-details">
+    <h3>🌟 About me</h3>
+    <ul>
+      <li><strong>Age:</strong> <input id="years" type="text"></li>
+      <li><strong>Location:</strong> <input id="location" type="text"></li>
+      <li><strong>Likes:</strong> <input id="likes" type="text"></li>
+      <li><strong>Dislikes:</strong> <input id="dislikes" type="text"></li>
+    </ul>
+              <button class="btn-message" (click)="changeInformationUser('years', 'location', 'likes', 'dislikes', 'valueDiv', 'showDiv')">💌 Accept changes</button>
+
+  </div>
+
+  <div id="showDiv" class="profile-details">
+    <h3>🌟 About me</h3>
+    <ul>
+      <li><strong>Age:</strong> {{years()}}</li>
+      <li><strong>Location:</strong> {{location()}}</li>
+      <li><strong>Likes:</strong> {{likes()}}</li>
+      <li><strong>Dislikes:</strong> {{dislikes()}}</li>
+    </ul>
+  </div>
+
+
+  <div class="profile-posts">
+    <h3>📝 My own posts</h3>
+
+    <div class="post-card">
+    <div [innerHTML]="getImagesofUsers()"></div>
+    </div>
+  </div>
+</div>
+<br><br>
+
+
+<!-- Música y stickers flotantes en footer -->
+<footer class="music-footer">
+  <audio controls autoplay loop muted>
+    <source src="/shiawase-cafe.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="floating-gif-container">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHk1eTh5eWNpbWQ5OHozOHV3b2J4aGJ5amwxcDVsZThyaGM0NHJpNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/tHIRLHtNwxpjIFqPdV/giphy.gif" class="floating-gif" />
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHk1eTh5eWNpbWQ5OHozOHV3b2J4aGJ5amwxcDVsZThyaGM0NHJpNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/6FxJBpNTBgWdJCXKD4/giphy.gif" class="floating-gif"/>
+    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHk1eTh5eWNpbWQ5OHozOHV3b2J4aGJ5amwxcDVsZThyaGM0NHJpNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/okrbnu3a6jaZ0HODFr/giphy.webp" alt="Cloud" class="floating-gif" />
+  </div>
+</footer>
+

@@ -1,0 +1,31 @@
+<div class="profile-container">
+
+<div class="new-post-form">
+  <h3>✨ Create New Post</h3>
+  <br>
+   <label for="fileInput" class="btn kawaii-btn">💖 Upload Post Image 💖</label>
+   <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" class="d-none"/> 
+     <br>     <br>
+    <div class="preview-new-post" >
+     <img [src]="imageURL() || '/blanco.jpg' " alt="Preview post" class="kawaii-img"/> 
+  </div>
+   <!-- <textarea  placeholder="Escribe tu descripción..." rows="3"></textarea>  -->
+    <label for="textoImage">Your text post goes here:</label>
+  <input (input)="onTextSelected($event)" id="texto"  rows="3" name="textoImage">
+
+  <button class="btn-post" (click)="buttonPublish($event)" >Publish</button> 
+</div>
+</div>
+
+<div class="profile-posts">
+  <h3>📝 Your Posts</h3>
+
+    <!-- creooo que el @if y el @for es mejor que ngFor ese o el ngIf ???????????-->
+    <div class="post-card" *ngFor="let object2 of posts">
+    <small *ngIf="object2.fecha">{{ object2.fecha }}</small>
+    <p>{{ object2.text }}</p>
+    <img *ngIf="object2.image" [src]="object2.image" alt="img" style="max-width:200px" />
+  </div>
+</div>
+
+

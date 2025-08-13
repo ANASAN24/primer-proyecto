@@ -1,0 +1,70 @@
+.kawaii-btn {
+  background: linear-gradient(135deg, #f9a8d4, #fbcfe8);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(249, 168, 212, 0.5);
+  font-family: 'Comic Sans MS', 'Segoe UI', cursive;
+  transition: all 0.3s ease;
+}
+
+.kawaii-btn:hover {
+  background: linear-gradient(135deg, #f472b6, #f9a8d4);
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(249, 168, 212, 0.7);
+  cursor: pointer;
+}
+
+.kawaii-frame {
+  position: relative;
+  display: inline-block;
+  padding: 12px;
+  border: 4px dashed #f9a8d4;
+  border-radius: 20px;
+  background-color: #fff0f5;
+  box-shadow: 0 8px 20px rgba(249, 168, 212, 0.3);
+  animation: float 3s ease-in-out infinite;
+}
+
+.kawaii-img {
+  max-width: 300px;
+  border-radius: 15px;
+  display: block;
+}
+
+/* Brillitos 🌟 */
+.sparkle {
+  position: absolute;
+  font-size: 24px;
+  animation: sparkle 2s infinite ease-in-out;
+  top: -10px;
+  right: -10px;
+}
+.sparkle2 {
+  top: auto;
+  bottom: -10px;
+  left: -10px;
+  animation-delay: 1s;
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+
+
+
+
+
+
+
+
+

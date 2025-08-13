@@ -1,0 +1,29 @@
+.posts-wall {
+  max-width: 600px;
+  margin: 1rem auto;
+  font-family: 'Comic Neue', cursive;
+  background-color: #fff0f6;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(255, 182, 193, 0.3);
+}
+
+.post-card {
+  background-color: #ffe4f2;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(255, 182, 193, 0.4);
+}
+
+.post-header {
+  font-size: 0.9rem;
+  color: #d63384;
+  margin-bottom: 0.5rem;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+}

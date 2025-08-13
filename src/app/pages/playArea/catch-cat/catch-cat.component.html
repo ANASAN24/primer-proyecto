@@ -1,0 +1,16 @@
+<div class="game-container">
+  <h3>😺 Catch the Gatito 😼</h3>
+  <p>Score: {{ score() }}</p>  
+  <img
+    src="https://media.tenor.com/8lR3_1m-i94AAAAi/cat.gif"
+    alt="Gatito"
+    id="cat"
+    (click)="catchCat()" 
+  />    <!-- cuando se hace click se mueve gato-->
+
+  <audio autoplay loop hidden>
+    <source src="/Nyanyanyanyanyanyanya.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+</div>
