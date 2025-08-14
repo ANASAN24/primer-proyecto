@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { storageService } from 'src/app/services/localStorage.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './posts-wall.html',
   styleUrls: ['./posts-wall.css']
 })
-export class PostsWall {
+export class PostsWall implements OnInit {
 
       posts: {
         fecha?: any; 
@@ -28,6 +28,9 @@ export class PostsWall {
     stored = localStorage.getItem("pinkApp_UsersList")
      users = this.stored ? JSON.parse(this.stored): []
 
+
+     userInformation = ""
+
       constructor(private authService:AuthService, private datePipe: DatePipe){
         this.formattedDate = this.datePipe.transform(this.currentDate, 'M/d/yy, h:mm a');
        }
@@ -36,6 +39,8 @@ export class PostsWall {
   const stored = localStorage.getItem(this.getUsersNames + "_posts");
   this.posts = stored ? JSON.parse(stored) : [];
   this.formattedDate;
+  this.userInformation = this.localStorageService.getImageofAllUsers();
+  console.log("mensaje nuevo: ", this.userInformation)
   }
 
   getUsersNames(){
@@ -44,8 +49,8 @@ export class PostsWall {
     return usernames;
   }
 
-getImagesofUsers(){
-  return this.localStorageService.getImageofAllUsers();
-}
+// getImagesofUsers(){
+//   return this.localStorageService.getImageofAllUsers();
+// }
 
 }

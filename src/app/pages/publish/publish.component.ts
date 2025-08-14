@@ -26,8 +26,7 @@ export class Publish {
         text?: string | null; 
         image?: string | null }[] = [];
 
-          formattedDate: string | null = null;
-          currentDate = new Date();
+ 
 
 
     private localStorageService = inject(storageService); // 👈 se inyecta aquí sin constructor
@@ -44,12 +43,13 @@ export class Publish {
   this.userRegistered();
   const stored = localStorage.getItem(this.currentUser.userName + "_posts");
   this.posts = stored ? JSON.parse(stored) : [];
-  this.formattedDate;
   }
 
   returnDate(){
-  this.formattedDate = this.datePipe.transform(this.currentDate, 'M/d/yy, h:mm a');
-    return this.formattedDate;
+        let formattedDate: string | null = null;
+         let currentDate = new Date();
+  formattedDate = this.datePipe.transform(currentDate, 'M/d/yy, h:mm a');
+    return formattedDate;
   }
   userRegistered(){ // CARGA EL USUARIO ACTUAL QUE ESTÁ LOGGEADO
     this.currentUser = this.authService.userRegistered();

@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { storageService } from 'src/app/services/localStorage.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { CommonModule } from '@angular/common';
@@ -12,7 +12,8 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit{
+[x: string]: any;
 
   currentUser: User = { userName: '', password: '', emailId: '' };
   private localStorageService = inject(storageService);
@@ -23,7 +24,6 @@ export class ProfileComponent {
     stored = localStorage.getItem("pinkApp_UsersList")
      users = this.stored ? JSON.parse(this.stored): []
 
-  informacionAlmacenada = ""
 
   //Perfil del user
   years = signal<string>('N/A')
@@ -31,15 +31,21 @@ export class ProfileComponent {
   likes = signal<string>('N/A')
   dislikes = signal<string>('N/A')
 
+  userInformation = ""
 
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
     this.currentUser = this.authService.userRegistered();
 
-   if(localStorage.getItem(this.currentUser.userName + "_banner")){
-    this.bannerImage.set(localStorage.getItem(this.currentUser.userName + "_banner"))
-   } 
+      this.userInformation = this.getImagesofUsers();
+
+
+  const banner = localStorage.getItem(this.currentUser.userName + "_banner");
+    if (banner) {
+  this.bannerImage.set(JSON.parse(banner));
+  console.log("la imagen: " + localStorage.getItem(this.currentUser.userName + "_banner"))
+    }
 
     const infoUser = localStorage.getItem(this.currentUser.userName + "_info")
     if(infoUser!=null){
@@ -77,6 +83,8 @@ export class ProfileComponent {
      
   getImagesofUsers(){
 
+         let informacionAlmacenada = ""
+
     console.log("fuera del for")
     
   let stored = localStorage.getItem(this.currentUser.userName + "_posts");
@@ -94,9 +102,9 @@ export class ProfileComponent {
     <hr>
   </div>
 `;
-this.informacionAlmacenada+=html;
+informacionAlmacenada+=html;
   }
-  return this.informacionAlmacenada
+  return informacionAlmacenada
 }
 
 ShowInformationUser(valueDivElement:any, infoDivElement:any){
@@ -136,6 +144,13 @@ changeInformationUser(years:string, location:string, likes:string, dislikes:stri
   localStorage.setItem(this.currentUser.userName + "_info", JSON.stringify(infoObject))
   console.log("la info idk wojasdaosijdasd: " + JSON.stringify(infoObject))
 
+}
+
+cancelButton(){
+    const valueDiv = document.getElementById("valueDiv") as HTMLDivElement
+  const infoDiv = document.getElementById("showDiv") as HTMLDivElement
+  valueDiv.style.display = "none";
+  infoDiv.style.display = "block";
 }
 
 }

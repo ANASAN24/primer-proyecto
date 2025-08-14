@@ -53,13 +53,13 @@
 
       <!-- d-flex = usa flexbox para alinear horizontalmente -->
       <!-- me-3 = margen a la derecha -->
-      <form class="d-flex me-3">
+      <form action="https://www.google.com/search" target="_blank" class="d-flex me-3">
         <!-- form-control = estilo para inputs -->
         <!-- me-2 = margen a la derecha -->
-        <input class="form-control me-2" type="text" placeholder="Search..." 
+        <input class="form-control me-2" type="text" placeholder="Search..." name="q" 
                style="border-radius: 15px; border: 1px solid #f8c8dc; background-color: #fff0f6;">
         <!-- btn = estilo de botón básico -->
-        <button class="btn" type="button" style="background-color: #ff85a2; color: white; border-radius: 15px;">
+        <button class="btn" type="submit" style="background-color: #ff85a2; color: white; border-radius: 15px;">
           🔍 Search
         </button>
       </form>
@@ -93,7 +93,7 @@
         <!-- dropdown-menu-end = alineado a la derecha -->
         <ul class="dropdown-menu dropdown-menu-end" style="font-family: 'Comic Neue', cursive;">
           <li><a class="dropdown-item" [routerLink]="['/profile']">My profile</a></li>
-          <li><a class="dropdown-item">Settings</a></li>
+          <!-- <li><a class="dropdown-item">Settings</a></li> -->
           <hr>
           <li><a class="dropdown-item text-danger" href="#">Log out</a></li>
         </ul>

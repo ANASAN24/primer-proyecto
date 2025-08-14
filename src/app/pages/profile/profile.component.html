@@ -7,7 +7,7 @@
   <div class="profile-pic-container">
     <div class="pic-wrapper">
     <img 
-      [src]="previewUrl() || 'https://via.placeholder.com/150'" 
+      [src]="previewUrl() || 'https://imgs.search.brave.com/tGkl_DxQifg86uYnNOCjRxGGXc9IOowrmpoQFYLuNoE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTI5/ODI2MTUyNS92ZWN0/b3IvYmxhbmstbWFu/LXByb2ZpbGUtcGxh/Y2Vob2xkZXItaWNv/bi13aXRoLWZyYW1l/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1WOHpJZnVoZkNH/QTVpMm9fd1h2RFZk/WEdUTjJtaTFsa2Fl/RVlPblBySDRjPQ'" 
       alt="Foto de perfil"
       class="profile-pic">
     </div>
@@ -35,12 +35,13 @@
     <div style="display: none;" id="valueDiv" class="profile-details">
     <h3>🌟 About me</h3>
     <ul>
-      <li><strong>Age:</strong> <input id="years" type="text"></li>
-      <li><strong>Location:</strong> <input id="location" type="text"></li>
-      <li><strong>Likes:</strong> <input id="likes" type="text"></li>
-      <li><strong>Dislikes:</strong> <input id="dislikes" type="text"></li>
+      <li><strong>Age:</strong> <input id="years" type="text" [ngModel]='years()'></li>
+      <li><strong>Location:</strong> <input id="location" type="text" [ngModel]='location()'></li>
+      <li><strong>Likes:</strong> <input id="likes" type="text" [ngModel]='likes()'></li>
+      <li><strong>Dislikes:</strong> <input id="dislikes" type="text" [ngModel]='dislikes()'></li>
     </ul>
               <button class="btn-message" (click)="changeInformationUser('years', 'location', 'likes', 'dislikes', 'valueDiv', 'showDiv')">💌 Accept changes</button>
+              <button class="btn-message" (click)="cancelButton()">💌 Cancel changes</button>
 
   </div>
 
@@ -59,7 +60,7 @@
     <h3>📝 My own posts</h3>
 
     <div class="post-card">
-    <div [innerHTML]="getImagesofUsers()"></div>
+    <div [innerHTML]="userInformation"></div>
     </div>
   </div>
 </div>

@@ -59,9 +59,10 @@ export class storageService {
     stored = localStorage.getItem("pinkApp_UsersList")
      users = this.stored ? JSON.parse(this.stored): []
 
-        informacionAlmacenada = ""
+       
 
   getImageofAllUsers(){
+  let informacionAlmacenada = ""
         for (const profileData of this.users){
   let stored = localStorage.getItem(profileData.userName + "_posts");
   let perfiles = stored ? JSON.parse(stored) : [];
@@ -77,9 +78,9 @@ export class storageService {
     <hr>
   </div>
 `;
-this.informacionAlmacenada+=info;
+informacionAlmacenada+=info;
   }
   }
-  return this.informacionAlmacenada
+  return informacionAlmacenada
   }
 }

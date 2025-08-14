@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-catch-cat',
@@ -7,11 +8,14 @@ import { Component, signal } from '@angular/core';
 })
 
 
-export class CatchCatComponent {
+export class CatchCatComponent implements OnDestroy, OnInit{
 
   intervalActive = false;
 
   score = signal(0);
+
+  startGame:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  intervalID:number = 0;
 
   ngOnInit() {
 
@@ -24,11 +28,9 @@ export class CatchCatComponent {
   
 // });
 
-
 // aqui se mueve al gato na mas iniciar, y se va actualizando posicion??
- setInterval(() => {
-    this.moveCatRandomly();
-  }, 500);
+  this.subcriptions();
+  this.startGame.next(true);
   }
 
   moveCatRandomly() {
@@ -58,4 +60,24 @@ export class CatchCatComponent {
     this.score.update((s)=> s+1)
     this.moveCatRandomly(); // se vuvelve a mover gato
   }
+
+  subcriptions(){
+
+    this.startGame.subscribe((start:boolean)=>{
+      if(start){
+        this.intervalID = setInterval(() => {
+          this.moveCatRandomly();
+          }, 500);
+      }else{
+        clearInterval(this.intervalID);
+      }
+    })
+
+  }
+
+    ngOnDestroy(): void {
+    console.log("componente destruio")
+    this.startGame.next(false);
+  }
+
 }
